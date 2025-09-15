@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online tool to convert Bollywood songs into devotional Bhakti songs. Transform any music into spiritual worship songs dedicated to your deity.">
+    <meta name="keywords" content="video converter, bhajan, kirtan, devotional songs, Bollywood to devotional, spiritual music converter">
+    <title>Bhakti Converter - Transform Bollywood Songs into Devotional Music</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #6d98ba;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --success: #28a745;
+            --ad-bg: #f1f3f4;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(to right, #4a6fa5, #6d98ba);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ffd166;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .converter-container {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ad-space {
+            flex: 0 0 300px;
+            background: var(--ad-bg);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ad-space p {
+            color: #6c757d;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        button i {
+            margin-right: 8px;
+        }
+        
+        button:hover {
+            background: #3a5a80;
+        }
+        
+        .download-btn {
+            background: var(--success);
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .download-btn:hover {
+            background: #218838;
+        }
+        
+        .progress-container {
+            margin-top: 20px;
+            background: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 20px;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: var(--success);
+            width: 0%;
+            transition: width 0.4s;
+        }
+        
+        .preview-container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .preview-title {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .video-preview {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            background: #000;
+            border-radius: 8px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .feature {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .feature i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--dark);
+            color: white;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .ad-space {
+                width: 100%;
+                flex: auto;
+                order: -1;
+                margin-bottom: 20px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-music"></i>
+            </div>
+            <h1>Bhakti Video Converter</h1>
+            <p>Transform Bollywood songs into devotional Bhakti songs with the same rhythm and melody</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="converter-container">
+                <h2>Convert Your Video</h2>
+                <p>Enter the URL of a Bollywood song to convert it into a devotional version</p>
+                
+                <div class="form-group">
+                    <label for="video-url">Video URL</label>
+                    <input type="url" id="video-url" placeholder="https://example.com/video.mp4">
+                </div>
+                
+                <div class="form-group">
+                    <label for="deity">Select Deity</label>
+                    <select id="deity">
+                        <option value="Krishna">Lord Krishna</option>
+                        <option value="Shiva">Lord Shiva</option>
+                        <option value="Rama">Lord Rama</option>
+                        <option value="Durga">Goddess Durga</option>
+                        <option value="Ganesha">Lord Ganesha</option>
+                        <option value="Sai Baba">Sai Baba</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="format">Output Format</label>
+                    <select id="format">
+                        <option value="mp4">MP4</option>
+                        <option value="webm">WebM</option>
+                        <option value="avi">AVI</option>
+                        <option value="mov">MOV</option>
+                    </select>
+                </div>
+                
+                <button id="convert-btn">
+                    <i class="fas fa-cog"></i> Convert Video
+                </button>
+                
+                <div class="progress-container" id="progress-container" style="display: none;">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                
+                <button class="download-btn" id="download-btn" style="display: none;">
+                    <i class="fas fa-download"></i> Download Converted Video
+                </button>
+            </div>
+            
+            <div class="ad-space">
+                <p>Advertisement Space<br>Google AdSense Ad Unit</p>
+            </div>
+        </div>
+        
+        <div class="preview-container">
+            <h2 class="preview-title">Preview</h2>
+            <div class="video-preview">
+                <p>Video preview will appear here after conversion</p>
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-bolt"></i>
+                <h3>Fast Conversion</h3>
+                <p>Convert videos quickly with our optimized processing algorithm</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-cloud-download-alt"></i>
+                <h3>Easy Download</h3>
+                <p>Download your converted videos with a single click</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Fully Responsive</h3>
+                <p>Works perfectly on desktop, tablet, and mobile devices</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Bhakti Video Converter &copy; 2023 | Transform your music into spiritual devotion</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const convertBtn = document.getElementById('convert-btn');
+            const downloadBtn = document.getElementById('download-btn');
+            const progressContainer = document.getElementById('progress-container');
+            const progressBar = document.getElementById('progress-bar');
+            const videoUrl = document.getElementById('video-url');
+            
+            convertBtn.addEventListener('click', function() {
+                if (!videoUrl.value) {
+                    alert('Please enter a video URL');
+                    return;
+                }
+                
+                // Simulate conversion process
+                progressContainer.style.display = 'block';
+                convertBtn.disabled = true;
+                
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += 5;
+                    progressBar.style.width = progress + '%';
+                    
+                    if (progress >= 100) {
+                        clearInterval(interval);
+                        setTimeout(() => {
+                            downloadBtn.style.display = 'block';
+                            alert('Conversion complete! Your video is ready to download.');
+                        }, 500);
+                    }
+                }, 200);
+            });
+            
+            downloadBtn.addEventListener('click', function() {
+                alert('In a real application, this would download the converted video. This is a frontend demo.');
+            });
+        });
+    </script>
+</body>
+</html>
